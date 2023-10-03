@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Interactive programs with Scanner Object</title>
+</head>
+<body>
+<h1>Interactive programs with Scanner Object</h1>
+<p>Reference of this text: <a href="https://courses.edx.org/courses/course-v1:Microsoft+DEV276x+4T2017/course/" target="_blank">Edx course "Microsoft: DEV276x Learn to Program in Java"</a></p>
+<p><strong><a href="https://youtu.be/cU8v8gch1qA" target="_blank"><span class="" style="background-color: rgb(152, 202, 62);">Scanner Video</span></a></strong></p>
+<p>video transcript: <a href="2017-05-15-69169-Java_Courses-Scanner-en.txt" target="_blank">2017-05-15-69169-Java_Courses-Scanner-en.txt</a></p>
+<h2>Scanner</h2>
+<p><br>So far we’ve used <code>System.out.println</code> (and .print) to make your Java programs write output text to the console. Now we need to learn how to let you type on the console to provide input text to your program. Since most programs are used by someone other the programmer who wrote it, we often refer to this input as coming from "the user". An "interactive program" is one that gets input from the user – not just the programmer! – that controls its operation.<br><br>There are lots of different ways to get input from users – keyboards, mice, touch screens, speech, etc. Java uses different classes of objects to handle this variety of different input mechanisms. The object we will use for the console keyboard is called "Scanner" and it is designed to handle text input. It is not built in, so we need to tell Java to look for it in the util library with this special line at the beginning of our program:</p>
+<p></p>
+<pre><strong>import java.util.*;</strong></pre>
+<p><br>Then, typically in a method, we create our own Scanner object with a name we define, like "input" and tell it to read text from System.in (the equivalent of the System.out we use for output):</p>
+<pre><strong>Scanner input = new </strong><strong>Scanner(System.in);</strong></pre>
+<p><br>Finally, we tell our object to get the next complete line of input from the user into a String variable:</p>
+<pre><strong>String name = input.nextLine();</strong></pre>
+<p><br>Whew! That’s a lot more complicated that output with println()! It’s also a lot more powerful, and these three lines will make much more sense once we put them all together in a program.</p>
+<h3><br><span style="background-color: #ccffcc;"><a href="LearnScanner.java" title="LearnScanner.java"><span style="background-color: #ccffcc;">LearnScanner.java</span></a></span></h3>
+<pre><strong>import java.util.Scanner;</strong><br><br><strong>public class LearnScanner {</strong><br><strong>&nbsp;&nbsp;&nbsp; public static void main(String[] args) {</strong><br><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Scanner input = new Scanner(System.in);</strong><br><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println("Welcome!");</strong><br><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.print("What is your name?");</strong><br><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; String name = input.next();</strong><br><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println("Hello " + name);</strong><br><strong>&nbsp;&nbsp;&nbsp; }</strong><br><strong>}</strong></pre>
+<p><br>The above code creates a new scanner and allows the user to type in any String. When Java gets to the line "input.next()" it pauses and waits for the user to type something into the console and hit "enter", then it picks back up where it left off. In this case you can type in any String without white space and it will be stored in the variable "name".<br><br>What if you want to get an int or a double instead of a String? Easy:</p>
+<pre><strong>int count = input.nextInt();</strong><br><strong>double&nbsp; amount = input.nextDouble();</strong></pre>
+<p><br>These allow the user to enter in numbers that you then save in the appropriate data types. Maybe you want to get some more information about your user you could read in multiple items like this:<br><br></p>
+<h3><span style="background-color: #ccffcc;"><a href="LearnScanner2.java" title="LearnScanner2.java"><span style="background-color: #ccffcc;">LearnScanner2.java</span></a></span></h3>
+<pre><strong>String name = input.next();</strong><br><strong>int age = input.nextInt();</strong><br><strong>double weight = input.nextDouble();</strong><br><strong>System.out.println(name + " is " + age + " year old and weighs " + weight + "kg”)</strong>;</pre>
+<p><br>The one drawback to this simple use of a Scanner is that if you expect the user to enter and integer, and then enter something else, the program will immediately end with a cryptic error message like:</p>
+<pre><br><strong>Exception in thread "main" java.util.InputMismatchException<br></strong></pre>
+<p><br>The same problem happens with a double, although the scanner will happily accept an integer input and convert it to a double just like it does in an assignment statement. There are ways of dealing with this cleanly, but we’re going to trust the user to enter the right things for now!<br><br>You can also let the user enter in as much as they like, including spaced by using the nextLine method. This will return a String of everything the user types before they hit "enter".</p>
+<pre><br><strong>String line = input.nextLine();</strong><br><br></pre>
+<p></p>
+</body>
+</html>

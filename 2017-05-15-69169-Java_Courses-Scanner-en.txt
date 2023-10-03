@@ -1,0 +1,121 @@
+So far, our programs have been
+very one directional. Meaning, we've told the computer
+to do something, it's gone and perform some tasks
+and then if there's output, it's printed it out to the
+console, meaning one direction from the
+computer out to you. But that's pretty boring.
+That's not how we're used to interacting with software.
+We're used to a back and forth, where we give the
+computer something, it does some work
+and then it returns back certain pieces of information.
+It's as if we need a way,
+for us to put things into the system.
+Well, as it turns out there's a way to do that.
+Let's think about our basic "Hello World" program.
+Before we just printed out the words
+"Hello World". But what if something like
+this, we paused for a moment
+to let the user type in their name. Then when they typed it,
+we saved it in a variable and then we greeted them appropriately.
+This is called an Interactive program.
+And the only thing we're missing in order to accomplish this,
+is something that listens for when the user types into the console.
+That thing is called a Scanner. A Scanner
+is a special Java API, that knows how to
+listen for when you're going to type
+things in the console. It's a way to send
+things back and forth between you,
+the user and the computer.
+In order to implement Scanner, you're going to need
+to add a few different pieces to your code.
+The first thing you're going to need to add is
+the import statement.
+Scanner doesn't come with all of the Java code by default.
+So you have to tell it to go find
+the code, otherwise you'll get a
+cannot find simple error.
+To add an import statement, you use the keyword import
+and then a space and then
+whatever code you need to add.
+In this case, we're going to add the code
+that's located at java.util.Scanner
+And then end the line with a semicolon(;).
+And this line goes before your class header even.
+If you're using an IDE like IntelliJ,
+and you forget this line,
+chances are it'll notice you're using a Scanner
+and suggest that you need to import it.
+The second thing you need to do is,
+actually create a new Scanner.
+This is creating what we call an object,
+but really it's going to be a tool for you
+to use throughout your program.
+And as you can see it's saved just like
+a variable. It starts with the type
+which is Scanner, with a capital S and then you give it a name.
+I like to call my Scanner as input, because that's what it is.
+It's listening for input from the user.
+Then on the right hand side
+use the keyword new and then the type
+Scanner again and then in the parenthesis,
+you're telling the Scanner
+what to listen to you.
+And in this case, you're going to tell it to listen to
+"System.in", meaning hey I'm a listener,
+I'm a scanner and I'm listening for
+whatever you type in the console.
+Once you've got all this set up, now you're ready to call upon
+your Scanner, whenever you want
+your user to type something in.
+And so where you place the next piece
+is very important because it's going to
+pause your code and wait for your user
+to enter something in. Here is an example,
+from the program we saw before.
+We print out a couple lines, "Welcome", "What is your name?",
+and then we know at that point
+we want to stop the program and wait for
+the user to type something in.
+And it will wait as long as it needs to.
+That's what the input.next() will do.
+This going to wait until the user types in a string,
+and hits enter. Once the user hits enter,
+whatever they typed in is going to
+get saved into the variable that we've created here.
+So in this case, whatever they type in it's going to get saved in a string
+called "name". Once we've got that
+variable, then we can go back and use it
+and greet the user appropriately.
+Scanner is very type-specific.
+So, really there's four different methods
+you're going to want to use, depending on
+what types of things you want the user to type in.
+For example, if you want them
+to type in an "int", they should type .nextInt,
+as their method on the Scanner.
+If you want them to type a double,
+it's .nextDouble and then there's the .next method
+that we use before that accepts strings
+but not spaces.
+So you can type in any characters but as soon as there's space,
+it'll forget anything after it.
+So if you do want your user to be able to
+type in a whole line, lots of spaces
+and capture everything just before they hit enter,
+you want to use the name of your Scanner .nextLine.
+Once you learn how to use these things,
+you'll realize the flow of your program
+depends on how the user types things in.
+So, it's good to get some practice.
+And you want to make sure you're paying close attention
+because if you're expecting an int in your user types of string,
+you're going to get an error
+that's going to crash your program.
+But, since you already understand lots about datatypes
+all you need to know is make sure that
+you're saving what they type in
+in the proper data type as a variable,
+and using the correct Scanner method.
+With these four methods, now you can
+create Interactive programs and have a
+real back and forth between you and your programs.
